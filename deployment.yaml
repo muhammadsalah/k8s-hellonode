@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hellonode
+  labels:
+    app: hellonode
+    version: CHANGEVERSION
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hellonode
+  template:
+    metadata:
+      labels:
+        app: hellonode
+    spec:
+      containers:
+        - name: hellonode
+          image: CHANGEIMAGE
+          imagePullPolicy: Always
+          env:
+            - name: CHAIN_URL
+              value: "http://hellopython:8000/"
+          ports:
+            - name: http-hellonode
+              containerPort: 8000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 10

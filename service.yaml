@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hellonode
+  name: hellonode
+spec:
+  ports:
+  - name: http-hellonode
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: hellonode

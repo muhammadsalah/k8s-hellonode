@@ -1,0 +1,11 @@
+{
+  "name": "hellonode",
+  "version": "1.0.0",
+  "description": "Simple webserver that is written in nodejs to demonstrate microservices on kubernetes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Muhammad Salah <m.salah@rytalo.com>",
+  "license": "ISC"
+}
